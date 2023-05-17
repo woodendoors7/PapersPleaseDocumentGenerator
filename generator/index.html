@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <title>Arstotzkan border control</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="definitions.js" defer></script>
+    <script src="names.js" defer></script>
+    <script src="generator.js" defer></script>
+
+    <script src="script.js" defer></script>
+    <script src="handlers.js" defer></script>
+
+
+</head>
+
+<body>
+    <div id="hideThis">
+        <img src="img/passport.png" alt="" id="passportPic" style="display: none;">
+        <div class="center">
+            <div>
+                <canvas width="1560" height="1944" id="passportCanvas">
+                </canvas>
+            </div>
+
+            <div id="settingsDiv" ondrop="dropHandler(event);" style="display: hidden;"
+                ondragover="dragOverHandler(event)">
+                <div id="marginDiv">
+                    <label for="name">Your name: </label><input value="Costava, Jorji" type="textbox" id="name" name="name">
+                    <label for="dob">Date of birth: </label><input value="9.6.1963" type="textbox" name="dob" id="dob" class="dob">
+                    <br>
+                    <label for="sex">SEX: </label><input value="M" type="textbox" name="sex" id="sex"> <br>
+                    <label for="iss">Issuer: </label><input value="Azerbaijan" type="textbox" id ="iss"name="iss">
+                    <label for="exp">Expiration date: </label><input value="3.4.2025" id="exp" type="textbox" name="exp"
+                        class="dob">
+                    <br>
+                    <label for="passid">Passport ID: </label><input value="37BR0-URJED"  id="passid" type="textbox" name="passid"
+                        id="passId">
+
+
+                    <div style="display: flex; flex-wrap: wrap;">
+                        <div style="flex: 1; line-height: 3rem; height: 275px;">
+                            <p>Drag image here.</p>
+                            <div id="dropZone" ondragover="dragOverHandler(event);" style="margin-bottom: 0px;">
+                                <img src="" id="dropImage" style="width: 200px; height: 200px;" alt="">
+                            </div>
+                            <br>
+                        </div>
+
+                        <div style="flex: 1;">
+                            <br>
+                            <button class="issueButton" id="stampMode" onclick="toggleStamping()">Open Stamp
+                                Rack</button>
+                            <button class="issueButton" id="issueButton" onclick="issuePass()">Issue Passport</button>
+
+                            <button class="issueButton loadingButton" id="loadingButton" onclick="issuePass()"
+                                style="display: none;"><progress max="50" value="0"
+                                    id="niceProgress"></progress></button>
+                        </div>
+                        <div class="break"></div>
+                        <button onclick="clearEverything()">Clear All</button> <button onclick="clearImage()">Clear
+                            image</button> <button onclick="clearStamps()">Clear stamps</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="unhideThis">
+        <div class="center" style="display: block;">
+            <img src="" style="width: 600px;" id="passImg" alt="">
+            <br>
+            <button id="download" onclick=""></button>
+        </div>
+    </div>
+
+
+</body>
+
+
+
+</html>

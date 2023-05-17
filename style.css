@@ -1,0 +1,109 @@
+html,
+body {
+    background-color: black;
+
+    color: white;
+    font-family: 'Pixelplay';
+    scroll-behavior: smooth;
+
+}
+
+
+@font-face {
+    font-family: Pixelplay;
+    src: url('pixelplay.woff');
+    font-display: swap
+}
+
+@font-face {
+    font-family: MiniKylie;
+    src: url('generator/fonts/BMmini.woff');
+    font-display: swap
+}
+
+
+.center {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+}
+
+.logo {
+    width: 40%;
+}
+
+.content {
+    text-align: center;
+    white-space: pre-line;
+    /* Additional styling for your content */
+    max-width: 900px;
+}
+
+.logoCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    line-height: 2px;
+}
+
+.articles {
+    font-size: 28px;
+    text-align: left;
+    white-space: normal;
+    font-family: MiniKylie;
+    margin: 5px;
+    line-height: 28px;
+}
+
+.gray {
+    color: #262626;
+    font-size: 28px;
+    text-align: left;
+    white-space: normal;
+    font-family: MiniKylie;
+    margin: 10px;
+}
+
+iframe{
+    width: 100%;
+    height: 90%;
+}
+
+#generateButton {
+    border: 3px solid white ;
+    background-color: transparent;
+    font-family: Nokia;
+    font-size: 18px;
+    color:white;
+    margin:1px;
+    padding: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+#generateButton:active {
+    border: 3px solid black !important;
+    background-color: white !important;
+    font-family: Nokia;
+    color: transparent;
+
+    color: black!important;
+}
+
+#generateButton:hover {
+    border: 4px solid white;
+    background-color: transparent;
+    font-family: Nokia;
+    margin: 0px;
+}
+
+
+@font-face {
+    font-family: 'Nokia';
+    src: url('generator/fonts/nokiafc22.woff') format('woff');
+    font-display: swap
+}
