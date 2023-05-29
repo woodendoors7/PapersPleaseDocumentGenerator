@@ -11,7 +11,13 @@ body {
 
 @font-face {
     font-family: Pixelplay;
-    src: url('pixelplay.woff');
+    src: url('generator/fonts/pixelplay.woff');
+    font-display: swap
+}
+
+@font-face {
+    font-family: Nokia;
+    src: url('generator/fonts/nokiafc22.woff');
     font-display: swap
 }
 
