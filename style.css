@@ -51,12 +51,13 @@ body {
 }
 
 .articles {
-    font-size: 28px;
+    font-size: 24px;
     text-align: left;
     white-space: normal;
     font-family: MiniKylie;
     margin: 5px;
     line-height: 28px;
+    color: rgb(192, 192, 192);
 }
 
 .gray {
