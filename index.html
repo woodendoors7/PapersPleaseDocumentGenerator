@@ -2,6 +2,17 @@
 <html lang="en">
 
 <head>
+    <link rel="icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="definitions.js" defer></script>
+    <script src="names.js" defer></script>
+    <script src="generator.js" defer></script>
+
+    <script src="script.js" defer></script>
+    <script src="handlers.js" defer></script>
+
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,36 +33,116 @@
     <meta property="og:title" content="Papers, Please Passport Generator">
     <meta property="og:description"
         content="Generate yourself a very nice personalized passport and become an Arstotzkan.">
-    <meta property="og:image"
-        content="https://papers.floppa.hair/floppacap.png">
+    <meta property="og:image" content="https://papers.floppa.hair/floppacap.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://papers.floppa.hair/">
     <meta property="twitter:title" content="Papers, Please Passport Generator">
     <meta property="twitter:description" content="The best and only working Papers Please document generator">
-    <meta property="twitter:image"
-        content="https://papers.floppa.hair/floppacap.png">
+    <meta property="twitter:image" content="https://papers.floppa.hair/floppacap.png">
 
-    <script src="script.js" defer></script>
+
 </head>
 
 <body>
-    <a href="https://github.com/woodendoors7/PapersPleaseDocumentGenerator"><img src="floppahair.png" id="floppahair"
-            style="width: 200px; " alt=""> </a>
-            <p style="margin-top: 0px; font-family: Nokia; font-size: 10px;">made by <a href="https://github.com/woodendoors7">woodendoors7</a></p>
+    <div>
+        <a target="_blank" href="https://floppa.hair"><img src="floppacap.png" id="floppahair" style="width: 200px; "
+                alt=""> </a>
+        <p style="margin-top: 0px; font-family: Nokia; font-size: 10px;">made by <a
+                href="https://github.com/woodendoors7" target="_blank">woodendoors7</a></p>
+    </div>
+
+    <div class="logoCenter">
+
+    </div>
+    <div class="logoCenter">
+        <a target="_blank" href="https://store.steampowered.com/app/239030/Papers_Please/"><img class="logo"
+                src="paperspleaselogo.png" style="width: 250px" alt="Papers, please">
+            <p style="color: white; font-size: 20px; line-height: 20px; margin-left: 40px;">a game by Lucas Pope</p>
+        </a>
+        <h1 style="font-size: 64px; line-height: 64px;">DOCUMENT GENERATOR</h1>
+    </div>
+
+    <div id="hideThis">
+        <img src="img/passport.png" alt="" id="passportPic" style="display: none;">
+        <div class="center">
+            <div>
+                <canvas width="1560" height="1944" id="passportCanvas">
+                </canvas>
+            </div>
+
+            <div id="settingsDiv" ondrop="dropHandler(event);" style="display: hidden;"
+                ondragover="dragOverHandler(event)">
+                <div id="marginDiv">
+                    <form action="post" onsubmit="return false;" method="get">
+                        <label for="name">Your name: </label><input value="Costava, Jorji" type="textbox" id="name"
+                            name="name">
+                        <label for="dob">Date of birth: </label><input value="9.6.1963" type="textbox" name="dob"
+                            id="dob" class="dob">
+                        <br>
+                        <label for="sex">SEX: </label><input value="M" type="textbox" name="sex" id="sex"> <br>
+                        <label for="iss">Issuer: </label><input value="Azerbaijan" type="textbox" id="iss" name="iss">
+                        <label for="exp">Expiration date: </label><input value="3.4.2025" id="exp" type="textbox"
+                            name="exp" class="dob">
+                        <br>
+                        <label for="passid">Passport ID: </label><input value="37BR0-URJED" id="passid" type="textbox"
+                            name="passid" id="passId">
+
+
+                        <div style="display: flex; flex-wrap: wrap;">
+                            <div style="flex: 1; line-height: 3rem; height: 275px;">
+                                <p>Drag image here.</p>
+                                <div id="dropZone" ondragover="dragOverHandler(event);" style="margin-bottom: 0px;">
+                                    <img src="" id="dropImage" style="width: 200px; height: 200px;" alt="">
+                                </div>
+                                <br>
+                            </div>
+
+                            <div style="flex: 1;">
+                                <br>
+                                <button class="issueButton" id="stampMode" onclick="toggleStamping()">Open Stamp
+                                    Rack</button>
+                                <button class="issueButton" id="issueButton" onclick="issuePass()">Issue
+                                    Passport</button>
+
+                                <button class="issueButton loadingButton" id="loadingButton" onclick="issuePass()"
+                                    style="display: none;"><progress max="50" value="0"
+                                        id="niceProgress"></progress></button>
+                            </div>
+                            <div class="break"></div>
+                            <button onclick="clearEverything()">Clear All</button> <button onclick="clearImage()">Clear
+                                image</button> <button onclick="clearStamps()">Clear stamps</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="unhideThis">
+        <div class="center" style="display: block;">
+            <img src="" style="width: 600px;" id="passImg" alt="">
+            <br>
+            <button id="download" onclick=""></button>
+        </div>
+    </div>
     <div class="center">
         <div class="content">
-            <div class="logoCenter">
-                <img class="logo" src="paperspleaselogo.png" alt="">
-                <h1 style="font-size: 64px; line-height: 64px;">DOCUMENT GENERATOR</h1>
-            </div>
-            <a href="/generator/"><button id="generateButton" onclick="timer()">Enter!</button></a>
-
             <main>
+                <h2 style="color:white; font-family: Pixelplay; text-align: left;">The best and only working Papers Please document generator there is.<br>You can use this site to make your own custom Arstotzkan passport, with a photo and everything.</h2>
 
-                <h2>The best and only working Papers Please document generator there is.<br>You can use this site to
-                    make your own custom Arstotzkan passport, with a photo and everything.</h2>
+                <p class="articles">How to make a passport?</p>
+                <ol class="articles" style="color:white; font-family: pixelplay; font-size: 32px; line-height: 38px;" type="1">
+                    <li>Input personal information, like your Passport ID (A1B2C3-D4E5F6), name (Format: Surname, Name),
+                        and others</li>
+                    <li>Click and drag an image from your computer for the passport photo.</li>
+                    <li>Open the stamp rack, and click the button again to cycle stamps. Click on the passport to stamp it.</li>
+                    <li>Click "Issue Passport" to generate your passport. Click the flashing "download" button to download it.</li>
+                    <li>All done! You've got your own passport.</li>
+
+
+                </ol>
 
                 <p class="articles">
                     Welcome to my whimsical and delightful Papers, Please documents generator! This little gem is a
@@ -67,20 +158,25 @@
                     time
                     to
                     bring laughter and amusement to the world of border control!
-                <p class="gray">-ChatGPT</p>
+                <p class="gray"  style="font-size: 30px !important;">-ChatGPT, to help SEO or something</p>
                 </p>
             </main>
         </div>
-        <br>
 
     </div>
 
 
+
+    <a target="_blank" href="https://www.npmjs.com/minecraftstatuspinger" style="color: #221818">Best mc pinging
+        library!</a>
+    <a target="_blank" href="https://uffu.floppa.hair" style="color: #221818">Uffu's floppa clicker</a>
+    <a target="_blank" href="https://catisland.floppa.hair" style="color: #221818">catisland</a>
+    <a target="_blank" href="https://floppa.hair" style="color: #221818">Landing page</a>
+    <a target="_blank" href="https://github.com/woodendoors7/DiscordFriendInvites" style="color: #221818">dc friend
+        invites</a>
+
 </body>
-<a href="https://www.npmjs.com/minecraftstatuspinger" style="color: rgb(2, 2, 2);">Best mc pinging library!</a>
-<a href="https://uffu.floppa.hair" style="color: rgb(2, 2, 2);">Uffu's floppa clicker</a>
-<a href="https://catisland.floppa.hair" style="color: rgb(2, 2, 2);">catisland</a>
-<a href="https://floppa.hair" style="color: rgb(2, 2, 2);">Landing page</a>
-<a href="https://github.com/woodendoors7/DiscordFriendInvites" style="color: rgb(2, 2, 2);">dc friend invites</a>
+
+
 
 </html>
