@@ -3,11 +3,11 @@ const ctx = canvas.getContext("2d");
 const image = document.getElementById("passportPic")
 const toggleButton = document.getElementById("stampMode");
 
-let stampbarOpen = new Audio('sounds/stampbar-open.wav')
-let stampbarClose = new Audio('sounds/stampbar-close.wav')
-let stampUp = new Audio('sounds/stamp-up.wav')
-let stampDown = new Audio('sounds/stamp-down.wav')
-let buttonDrop = new Audio('sounds/button-drop.wav')
+let stampbarOpen = new Audio('../sounds/stampbar-open.wav')
+let stampbarClose = new Audio('../sounds/stampbar-close.wav')
+let stampUp = new Audio('../sounds/stamp-up.wav')
+let stampDown = new Audio('../sounds/stamp-down.wav')
+let buttonDrop = new Audio('../sounds/button-drop.wav')
 
 stampbarOpen.volume = 0.3;
 stampbarClose.volume = 0.3;
@@ -18,14 +18,14 @@ stampDown.volume = 0.5;
 buttonDrop.volume = 0.8
 
 const grantedStamp = new Image();
-grantedStamp.src = 'img/grantedentry.png';
+grantedStamp.src = '../img/grantedentry.png';
 const deniedReason = new Image();
-deniedReason.src = 'img/deniedreason.png';
+deniedReason.src = '../img/deniedreason.png';
 const deniedStamp = new Image();
-deniedStamp.src = 'img/deniedentry.png';
+deniedStamp.src = '../img/deniedentry.png';
 let stampingMode = false;
 const img = new Image();
-img.src = 'img/passport.png';
+img.src = '../img/passport.png';
 
 
 

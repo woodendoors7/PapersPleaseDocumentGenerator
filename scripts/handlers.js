@@ -133,7 +133,7 @@ let startTimeout;
 function download() {
     clearInterval(blinkInterval)
     clearInterval(startTimeout)
-    downloadElem.style.backgroundImage = "url('img/downloadDone.png')"
+    downloadElem.style.backgroundImage = "url('../img/downloadDone.png')"
     startTimeout = setTimeout(() => {
         startBlinking()
     }, 2000);
