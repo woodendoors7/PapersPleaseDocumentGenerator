@@ -73,6 +73,15 @@ html{
     margin: 10px;
 }
 
+.howShouldLookLike{
+    color: #e0e0e0;
+    font-size: 24px;
+    text-align: left;
+    white-space: normal;
+    font-family: BMmini;
+    margin: 10px;
+}
+
 .content {
     text-align: center;
     white-space: pre-line;
